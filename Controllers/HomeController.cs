@@ -26,5 +26,19 @@ namespace John_Doe_Food_Ltd.Controllers
 
             return View();
         }
+
+        public ActionResult Suppliers()
+        {
+            ViewBag.Message = "Your suppliers page.";
+
+            return View();
+        }
+
+        public ActionResult Catalouge()
+        {
+            ViewBag.Message = "Your catalouge page.";
+
+            return View();
+        }
     }
 }
