@@ -4,12 +4,36 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - John Doe's Foods Ltd</title>
+    <link rel="stylesheet" href="style.css">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+<body>    
+    <style>
+        .navbar-inverse .navbar-brand {
+            color: white;
+        }
+        .navbar-inverse .navbar-nav > li > a {
+            color: white;
+        }
+        body {
+            font-family: "Times New Roman", Times, serif;
+        }
+        .jumbotron {
+            background-color:#60D286;
+            color:white;
+        }
+        .btn-primary {
+            background-color: orange;
+            border-color: orange;
+        }
+        .btn-primary:hover {
+            background-color: darkorange;             
+            border-color: darkorange;
+        }
+    </style>
+    <div class="navbar-light navbar-inverse navbar-fixed-top" style="background-color:#38c768;">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -31,7 +55,7 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content" style="padding-top:5%;">
         @RenderBody()
         <hr />
         <footer>
