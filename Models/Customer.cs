@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace John_Doe_Food_Ltd.Models
 {
@@ -13,7 +15,7 @@ namespace John_Doe_Food_Ltd.Models
         {
             _customers = new List<Customer>();
         }
-
+        [Key]
         public int CustomerId { get; set; }
         public string CustomerName { get; set; }
         public string CustomerType { get; set; }

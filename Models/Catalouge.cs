@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace John_Doe_Food_Ltd.Models
@@ -14,6 +16,7 @@ namespace John_Doe_Food_Ltd.Models
         {
             _catalouges = new List<Catalouge>();
         }        
+        [Key]
         public int FoodId { get; set; }
         public string FoodName { get; set; }
         public string FoodType { get; set; }
