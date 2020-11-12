@@ -190,6 +190,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011121441368_AddSupplie.cs" />
+    <Compile Include="Migrations\202011121441368_AddSupplie.designer.cs">
+      <DependentUpon>202011121441368_AddSupplie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Catalouge.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -256,11 +261,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Catalouge\Create.cshtml" />
-    <Content Include="Views\Catalouge\Delete.cshtml" />
-    <Content Include="Views\Catalouge\Details.cshtml" />
-    <Content Include="Views\Catalouge\Edit.cshtml" />
-    <Content Include="Views\Catalouge\Index.cshtml" />
     <Content Include="Views\Customer\Create.cshtml" />
     <Content Include="Views\Customer\Delete.cshtml" />
     <Content Include="Views\Customer\Details.cshtml" />
@@ -271,6 +271,11 @@
     <Content Include="Views\Supplier\Details.cshtml" />
     <Content Include="Views\Supplier\Edit.cshtml" />
     <Content Include="Views\Supplier\Index.cshtml" />
+    <Content Include="Views\Catalouge\Create.cshtml" />
+    <Content Include="Views\Catalouge\Delete.cshtml" />
+    <Content Include="Views\Catalouge\Details.cshtml" />
+    <Content Include="Views\Catalouge\Edit.cshtml" />
+    <Content Include="Views\Catalouge\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -287,6 +292,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202011121441368_AddSupplie.resx">
+      <DependentUpon>202011121441368_AddSupplie.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
