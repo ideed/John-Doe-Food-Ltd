@@ -11,10 +11,7 @@ namespace John_Doe_Food_Ltd.Models
     {
         private ICollection<Customer> _customers;
 
-        public Customer()
-        {
-            _customers = new List<Customer>();
-        }
+        
         [Key]
         public int CustomerId { get; set; }
         public string CustomerName { get; set; }

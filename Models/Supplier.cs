@@ -9,11 +9,7 @@ namespace John_Doe_Food_Ltd.Models
     {
         private ICollection<Supplier> _suppliers;
 
-        public Supplier()
-        {
-            _suppliers = new List<Supplier>();
-        }
-
+        
         public int SupplierId { get; set; }
         public string SupplierName { get; set; }
         public string SupplierType { get; set; }
