@@ -17,8 +17,7 @@ namespace John_Doe_Food_Ltd.Controllers
         // GET: Catalouge
         public ActionResult Index()
         {
-            var catalouges = db.Catalouges.Include(c => c.Supplier);
-            return View(catalouges.ToList());
+            return View(db.Catalouges.ToList());
         }
 
         // GET: Catalouge/Details/5
@@ -39,7 +38,6 @@ namespace John_Doe_Food_Ltd.Controllers
         // GET: Catalouge/Create
         public ActionResult Create()
         {
-            ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "SupplierName");
             return View();
         }
 
@@ -48,7 +46,7 @@ namespace John_Doe_Food_Ltd.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FoodId,FoodName,FoodType,Acess,SupplierId")] Catalouge catalouge)
+        public ActionResult Create([Bind(Include = "FoodId,FoodName,FoodType,CommericalGood")] Catalouge catalouge)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +55,6 @@ namespace John_Doe_Food_Ltd.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "SupplierName", catalouge.SupplierId);
             return View(catalouge);
         }
 
@@ -73,7 +70,6 @@ namespace John_Doe_Food_Ltd.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "SupplierName", catalouge.SupplierId);
             return View(catalouge);
         }
 
@@ -82,7 +78,7 @@ namespace John_Doe_Food_Ltd.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "FoodId,FoodName,FoodType,Acess,SupplierId")] Catalouge catalouge)
+        public ActionResult Edit([Bind(Include = "FoodId,FoodName,FoodType,CommericalGood")] Catalouge catalouge)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +86,6 @@ namespace John_Doe_Food_Ltd.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "SupplierName", catalouge.SupplierId);
             return View(catalouge);
         }
 

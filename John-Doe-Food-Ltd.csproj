@@ -194,6 +194,18 @@
     <Compile Include="Migrations\202011121441368_AddSupplie.designer.cs">
       <DependentUpon>202011121441368_AddSupplie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011161751540_databaseImprovement.cs" />
+    <Compile Include="Migrations\202011161751540_databaseImprovement.designer.cs">
+      <DependentUpon>202011161751540_databaseImprovement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011161757364_databaeImprovemtTwo.cs" />
+    <Compile Include="Migrations\202011161757364_databaeImprovemtTwo.designer.cs">
+      <DependentUpon>202011161757364_databaeImprovemtTwo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011161759545_databaseIprovementThree.cs" />
+    <Compile Include="Migrations\202011161759545_databaseIprovementThree.designer.cs">
+      <DependentUpon>202011161759545_databaseIprovementThree.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Catalouge.cs" />
@@ -238,9 +250,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -266,16 +275,19 @@
     <Content Include="Views\Customer\Details.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
-    <Content Include="Views\Supplier\Create.cshtml" />
-    <Content Include="Views\Supplier\Delete.cshtml" />
-    <Content Include="Views\Supplier\Details.cshtml" />
-    <Content Include="Views\Supplier\Edit.cshtml" />
-    <Content Include="Views\Supplier\Index.cshtml" />
     <Content Include="Views\Catalouge\Create.cshtml" />
     <Content Include="Views\Catalouge\Delete.cshtml" />
     <Content Include="Views\Catalouge\Details.cshtml" />
     <Content Include="Views\Catalouge\Edit.cshtml" />
     <Content Include="Views\Catalouge\Index.cshtml" />
+    <Content Include="Views\Supplier\Create.cshtml" />
+    <Content Include="Views\Supplier\Delete.cshtml" />
+    <Content Include="Views\Supplier\Details.cshtml" />
+    <Content Include="Views\Supplier\Edit.cshtml" />
+    <Content Include="Views\Supplier\Index.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -296,6 +308,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202011121441368_AddSupplie.resx">
       <DependentUpon>202011121441368_AddSupplie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011161751540_databaseImprovement.resx">
+      <DependentUpon>202011161751540_databaseImprovement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011161757364_databaeImprovemtTwo.resx">
+      <DependentUpon>202011161757364_databaeImprovemtTwo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011161759545_databaseIprovementThree.resx">
+      <DependentUpon>202011161759545_databaseIprovementThree.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
