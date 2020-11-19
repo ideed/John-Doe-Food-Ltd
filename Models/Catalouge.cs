@@ -11,25 +11,16 @@ namespace John_Doe_Food_Ltd.Models
     public class Catalouge
     {
         
-        private ICollection<Customer> _customers;
-        
         [Key]
         public int FoodId { get; set; }
         public string FoodName { get; set; }
         public string FoodType { get; set; }
         public Boolean CommericalGood { get; set; }        
-        
-        //One-to-Many
-        public virtual List<Customer>Customers
-        {
-            get { return _customers.ToList(); }
-            set { _customers = value; }
-        }
-        //Many-to-Many
-        public List<Supplier> Suppliers { get; set; }
+                 
+        public List<Orders> Orders { get; set; }
         public Catalouge()
-        {
-            this.Suppliers = new List<Supplier>();
-        }
+        {            
+            this.Orders = new List<Orders>();
+        }        
     }
 }

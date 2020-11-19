@@ -15,6 +15,13 @@ namespace John_Doe_Food_Ltd.Models
         public Boolean Commercial { get; set; }
         public string TelephoneNo { get; set; }
         public string Email { get; set; }
-        public string Address { get; set; } 
+        public string Address { get; set; }
+
+        public List<Orders> Orders { get; set; }
+
+        public Customer()
+        {
+            this.Orders = new List<Orders>();
+        }
     }
 }

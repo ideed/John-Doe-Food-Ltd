@@ -184,8 +184,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CatalougeController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -206,6 +206,18 @@
     <Compile Include="Migrations\202011161759545_databaseIprovementThree.designer.cs">
       <DependentUpon>202011161759545_databaseIprovementThree.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011191007296_Added Ordrs.cs" />
+    <Compile Include="Migrations\202011191007296_Added Ordrs.designer.cs">
+      <DependentUpon>202011191007296_Added Ordrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011191045350_fixed database.cs" />
+    <Compile Include="Migrations\202011191045350_fixed database.designer.cs">
+      <DependentUpon>202011191045350_fixed database.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011191132110_fixed catalouge.cs" />
+    <Compile Include="Migrations\202011191132110_fixed catalouge.designer.cs">
+      <DependentUpon>202011191132110_fixed catalouge.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Catalouge.cs" />
@@ -213,6 +225,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LibraryModelContext.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Orders.cs" />
     <Compile Include="Models\Supplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -270,16 +283,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Customer\Create.cshtml" />
-    <Content Include="Views\Customer\Delete.cshtml" />
-    <Content Include="Views\Customer\Details.cshtml" />
-    <Content Include="Views\Customer\Edit.cshtml" />
-    <Content Include="Views\Customer\Index.cshtml" />
-    <Content Include="Views\Catalouge\Create.cshtml" />
-    <Content Include="Views\Catalouge\Delete.cshtml" />
-    <Content Include="Views\Catalouge\Details.cshtml" />
-    <Content Include="Views\Catalouge\Edit.cshtml" />
-    <Content Include="Views\Catalouge\Index.cshtml" />
     <Content Include="Views\Supplier\Create.cshtml" />
     <Content Include="Views\Supplier\Delete.cshtml" />
     <Content Include="Views\Supplier\Details.cshtml" />
@@ -288,6 +291,21 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Customer\Delete.cshtml" />
+    <Content Include="Views\Customer\Details.cshtml" />
+    <Content Include="Views\Customer\Edit.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Order\Create.cshtml" />
+    <Content Include="Views\Order\Delete.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Order\Edit.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Catalouge\Create.cshtml" />
+    <Content Include="Views\Catalouge\Delete.cshtml" />
+    <Content Include="Views\Catalouge\Details.cshtml" />
+    <Content Include="Views\Catalouge\Edit.cshtml" />
+    <Content Include="Views\Catalouge\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -317,6 +335,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011161759545_databaseIprovementThree.resx">
       <DependentUpon>202011161759545_databaseIprovementThree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011191007296_Added Ordrs.resx">
+      <DependentUpon>202011191007296_Added Ordrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011191045350_fixed database.resx">
+      <DependentUpon>202011191045350_fixed database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011191132110_fixed catalouge.resx">
+      <DependentUpon>202011191132110_fixed catalouge.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

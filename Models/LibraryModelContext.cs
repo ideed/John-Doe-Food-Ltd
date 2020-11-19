@@ -16,6 +16,7 @@ namespace John_Doe_Food_Ltd.Models
         public DbSet<Catalouge> Catalouges { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<Orders> Orders { get; set; }
 
     }
 }
