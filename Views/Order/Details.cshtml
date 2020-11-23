@@ -1,4 +1,4 @@
-﻿@model John_Doe_Food_Ltd.Models.Orders
+﻿@model John_Doe_Food_Ltd.Models.Order
 
 @{
     ViewBag.Title = "Details";
@@ -8,9 +8,33 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Orders</h4>
+    <h4>Order</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOrdered)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOrdered)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CusId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CusId)
+        </dd>
+
     </dl>
 </div>
 <p>

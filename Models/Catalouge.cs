@@ -17,10 +17,6 @@ namespace John_Doe_Food_Ltd.Models
         public string FoodType { get; set; }
         public Boolean CommericalGood { get; set; }        
                  
-        public List<Orders> Orders { get; set; }
-        public Catalouge()
-        {            
-            this.Orders = new List<Orders>();
-        }        
+        public virtual ICollection<Order> Orders { get; set; }  
     }
 }

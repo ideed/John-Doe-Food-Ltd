@@ -17,11 +17,6 @@ namespace John_Doe_Food_Ltd.Models
         public string Email { get; set; }
         public string Address { get; set; }
 
-        public List<Orders> Orders { get; set; }
-
-        public Customer()
-        {
-            this.Orders = new List<Orders>();
-        }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

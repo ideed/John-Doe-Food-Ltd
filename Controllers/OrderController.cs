@@ -27,12 +27,12 @@ namespace John_Doe_Food_Ltd.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Orders orders = db.Orders.Find(id);
-            if (orders == null)
+            Order order = db.Orders.Find(id);
+            if (order == null)
             {
                 return HttpNotFound();
             }
-            return View(orders);
+            return View(order);
         }
 
         // GET: Order/Create
@@ -46,16 +46,16 @@ namespace John_Doe_Food_Ltd.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderId")] Orders orders)
+        public ActionResult Create([Bind(Include = "OrderId,DateOrdered,CatId,CusId")] Order order)
         {
             if (ModelState.IsValid)
             {
-                db.Orders.Add(orders);
+                db.Orders.Add(order);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(orders);
+            return View(order);
         }
 
         // GET: Order/Edit/5
@@ -65,12 +65,12 @@ namespace John_Doe_Food_Ltd.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Orders orders = db.Orders.Find(id);
-            if (orders == null)
+            Order order = db.Orders.Find(id);
+            if (order == null)
             {
                 return HttpNotFound();
             }
-            return View(orders);
+            return View(order);
         }
 
         // POST: Order/Edit/5
@@ -78,15 +78,15 @@ namespace John_Doe_Food_Ltd.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OrderId")] Orders orders)
+        public ActionResult Edit([Bind(Include = "OrderId,DateOrdered,CatId,CusId")] Order order)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(orders).State = EntityState.Modified;
+                db.Entry(order).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(orders);
+            return View(order);
         }
 
         // GET: Order/Delete/5
@@ -96,12 +96,12 @@ namespace John_Doe_Food_Ltd.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Orders orders = db.Orders.Find(id);
-            if (orders == null)
+            Order order = db.Orders.Find(id);
+            if (order == null)
             {
                 return HttpNotFound();
             }
-            return View(orders);
+            return View(order);
         }
 
         // POST: Order/Delete/5
@@ -109,8 +109,8 @@ namespace John_Doe_Food_Ltd.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Orders orders = db.Orders.Find(id);
-            db.Orders.Remove(orders);
+            Order order = db.Orders.Find(id);
+            db.Orders.Remove(order);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

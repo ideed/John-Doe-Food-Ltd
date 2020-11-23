@@ -219,6 +219,30 @@
     <Compile Include="Migrations\202011191132110_fixed catalouge.designer.cs">
       <DependentUpon>202011191132110_fixed catalouge.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011191308004_added seed.cs" />
+    <Compile Include="Migrations\202011191308004_added seed.designer.cs">
+      <DependentUpon>202011191308004_added seed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011191420123_added refNo.cs" />
+    <Compile Include="Migrations\202011191420123_added refNo.designer.cs">
+      <DependentUpon>202011191420123_added refNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011231112168_ordersFix.cs" />
+    <Compile Include="Migrations\202011231112168_ordersFix.designer.cs">
+      <DependentUpon>202011231112168_ordersFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011231135403_CatId+CusId.cs" />
+    <Compile Include="Migrations\202011231135403_CatId+CusId.designer.cs">
+      <DependentUpon>202011231135403_CatId+CusId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011231143043_fix.cs" />
+    <Compile Include="Migrations\202011231143043_fix.designer.cs">
+      <DependentUpon>202011231143043_fix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011231151447_removedRefNo.cs" />
+    <Compile Include="Migrations\202011231151447_removedRefNo.designer.cs">
+      <DependentUpon>202011231151447_removedRefNo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Catalouge.cs" />
@@ -226,7 +250,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LibraryModelContext.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Orders.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Supplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -297,16 +321,16 @@
     <Content Include="Views\Customer\Details.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
-    <Content Include="Views\Order\Create.cshtml" />
-    <Content Include="Views\Order\Delete.cshtml" />
-    <Content Include="Views\Order\Details.cshtml" />
-    <Content Include="Views\Order\Edit.cshtml" />
-    <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Catalouge\Create.cshtml" />
     <Content Include="Views\Catalouge\Delete.cshtml" />
     <Content Include="Views\Catalouge\Details.cshtml" />
     <Content Include="Views\Catalouge\Edit.cshtml" />
     <Content Include="Views\Catalouge\Index.cshtml" />
+    <Content Include="Views\Order\Create.cshtml" />
+    <Content Include="Views\Order\Delete.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Order\Edit.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -345,6 +369,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011191132110_fixed catalouge.resx">
       <DependentUpon>202011191132110_fixed catalouge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011191308004_added seed.resx">
+      <DependentUpon>202011191308004_added seed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011191420123_added refNo.resx">
+      <DependentUpon>202011191420123_added refNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011231112168_ordersFix.resx">
+      <DependentUpon>202011231112168_ordersFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011231135403_CatId+CusId.resx">
+      <DependentUpon>202011231135403_CatId+CusId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011231143043_fix.resx">
+      <DependentUpon>202011231143043_fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011231151447_removedRefNo.resx">
+      <DependentUpon>202011231151447_removedRefNo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -7,12 +7,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace John_Doe_Food_Ltd.Models
 {
-    public class Orders
+    public class Order
     {  
         
         [Key]
         public int OrderId { get; set; }
 
-        public DateTime DateOrdered { get; set; }
+        public DateTime DateOrdered { get; set; }        
+
+        public int CatId { get; set; }
+        public int CusId { get; set; }
     }
 }
