@@ -57,7 +57,19 @@
             context.SaveChanges();
             var Orders = new List<Order>
             {
-                new Order{DateOrdered=new DateTime(2020,11,10), CatId=2, CusId=1}
+                new Order{DateOrdered=new DateTime(2020,11,10), CatId=2, CusId=1},
+                new Order{DateOrdered=new DateTime(2020,11,07), CatId=3, CusId=5},
+                new Order{DateOrdered=new DateTime(2020,10,09), CatId=8, CusId=6},
+                new Order{DateOrdered=new DateTime(2020,10,22), CatId=10, CusId=7},
+                new Order{DateOrdered=new DateTime(2020,11,03), CatId=5, CusId=2},
+                new Order{DateOrdered=new DateTime(2020,09,18), CatId=12, CusId=4},
+                new Order{DateOrdered=new DateTime(2020,10,10), CatId=13, CusId=2},
+                new Order{DateOrdered=new DateTime(2020,09,22), CatId=6, CusId=3},
+                new Order{DateOrdered=new DateTime(2020,08,16), CatId=8, CusId=6},
+                new Order{DateOrdered=new DateTime(2020,11,02), CatId=11, CusId=1},
+                new Order{DateOrdered=new DateTime(2019,12,08), CatId=12, CusId=7},
+                new Order{DateOrdered=new DateTime(2020,12,01), CatId=4, CusId=2},
+                new Order{DateOrdered=new DateTime(2019,11,11), CatId=7, CusId=2}
             };
             Orders.ForEach(o => context.Orders.AddOrUpdate(Order => Order.CatId, o));
             context.SaveChanges();
