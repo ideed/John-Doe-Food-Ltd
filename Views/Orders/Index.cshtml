@@ -15,12 +15,6 @@
         <th>
             @Html.DisplayNameFor(model => model.DateOrdered)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CatId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CusId)
-        </th>
         <th></th>
     </tr>
 
@@ -28,12 +22,6 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.DateOrdered)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CatId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CusId)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.OrderId }) |

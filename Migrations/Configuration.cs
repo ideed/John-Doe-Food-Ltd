@@ -11,37 +11,37 @@
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(John_Doe_Food_Ltd.Models.LibraryContext context)
         {
-            var Catalouge = new List<Catalouge>
-            {
-                new Catalouge{FoodName="Ben's Pringels",FoodType="Snack",CommericalGood=true},
-                new Catalouge{FoodName="John's Home Made Meals",FoodType="Meal",CommericalGood=false},
-                new Catalouge{FoodName="Steven Apples",FoodType="Fruit",CommericalGood=true},
-                new Catalouge{FoodName="Steven Carrots",FoodType="Veg",CommericalGood=true},
-                new Catalouge{FoodName="John's Microwave Meal",FoodType="Meal",CommericalGood=false},
-                new Catalouge{FoodName="Nutella Cakes",FoodType="Pastry",CommericalGood=true},
-                new Catalouge{FoodName="Smith's Pork",FoodType="Meat",CommericalGood=true},
-                new Catalouge{FoodName="Smith's Beef",FoodType="Meat",CommericalGood=true},
-                new Catalouge{FoodName="Eamonn Buns",FoodType="Pastry",CommericalGood=false},
-                new Catalouge{FoodName="Eamonn Sponge Cake",FoodType="Pastry",CommericalGood=false},
-                new Catalouge{FoodName="Nela's Imported Canned Foods",FoodType="Canned",CommericalGood=false},
-                new Catalouge{FoodName="Eamonn's Local Canned Foods",FoodType="Canned",CommericalGood=true}
-            };
-            Catalouge.ForEach(c => context.Catalouges.AddOrUpdate(Catalouges => Catalouges.FoodName, c));
-            context.SaveChanges();
             var Suppliers = new List<Supplier>
             {
-                new Supplier{SupplierName="Steven's Farming Co",SupplierType="Farm",TelephoneNo="0854463290",Email="StevenFarming@gmail.com",Address="98 Country Road Wicklow",Supplies=Catalouge.Where(s =>(s.FoodName=="Steven Apples")||(s.FoodName=="Steven Carrots")).ToList()},
-                new Supplier{SupplierName="John's Manufacturing",SupplierType="Factory",TelephoneNo="0872468231",Email="JohnSmith@gmail.com",Address="280 Industrial Road Dublin",Supplies=Catalouge.Where(s =>(s.FoodName=="John's Home Made Meals")||(s.FoodName=="John's Microwave Meal")).ToList()},
-                new Supplier{SupplierName="Nela Wholeseller",SupplierType="Wholeseller",TelephoneNo="0897745689",Email="Nela@hotmail.com",Address="32 Commerical Road Cork",Supplies=Catalouge.Where(s =>(s.FoodName=="Ben's Pringels")||(s.FoodName=="Nutella Cakes")||(s.FoodName=="Nela's Imported Canned Foods")).ToList()},
-                new Supplier{SupplierName="Smith's Farming Ltd",SupplierType="Farm",TelephoneNo="0837776629",Email="SmithFarming@yahoo.com",Address="69 Country Road Donegal",Supplies=Catalouge.Where(s =>(s.FoodName=="Smith's Pork")||(s.FoodName=="Smith's Beef")).ToList()},
-                new Supplier{SupplierName="Eamonn Industrial Plant",SupplierType="Factory",TelephoneNo="0829866329",Email="EamonnIndustry@gmail.com",Address="24 Industrial Road Cork",Supplies=Catalouge.Where(s =>(s.FoodName=="Eamonn Buns")||(s.FoodName=="Eamonn Sponge Cake")||(s.FoodName=="Eamonn's Local Canned Foods")).ToList()},
+                new Supplier{SupplierName="Steven's Farming Co",SupplierType="Farm",TelephoneNo="0854463290",Email="StevenFarming@gmail.com",Address="98 Country Road Wicklow"},
+                new Supplier{SupplierName="John's Manufacturing",SupplierType="Factory",TelephoneNo="0872468231",Email="JohnSmith@gmail.com",Address="280 Industrial Road Dublin"},
+                new Supplier{SupplierName="Nela Wholeseller",SupplierType="Wholeseller",TelephoneNo="0897745689",Email="Nela@hotmail.com",Address="32 Commerical Road Cork"},
+                new Supplier{SupplierName="Smith's Farming Ltd",SupplierType="Farm",TelephoneNo="0837776629",Email="SmithFarming@yahoo.com",Address="69 Country Road Donegal"},
+                new Supplier{SupplierName="Eamonn Industrial Plant",SupplierType="Factory",TelephoneNo="0829866329",Email="EamonnIndustry@gmail.com",Address="24 Industrial Road Cork"}
             };
             Suppliers.ForEach(s => context.Suppliers.AddOrUpdate(Supplier => Supplier.SupplierName, s));
+            context.SaveChanges();
+            var Catalouge = new List<Catalouge>
+            {
+                new Catalouge{FoodName="Ben's Pringels",FoodType="Snack",CommericalGood=true,Supplier=Suppliers.Where(s => (s.SupplierName=="John's Manufacturing")).ToList()},
+                new Catalouge{FoodName="John's Home Made Meals",FoodType="Meal",CommericalGood=false, Supplier=Suppliers.Where(s => (s.SupplierName=="Nela Wholeseller")).ToList()},
+                new Catalouge{FoodName="Steven Apples",FoodType="Fruit",CommericalGood=true, Supplier=Suppliers.Where(s => (s.SupplierName=="Steven's Farming Co")).ToList()},
+                new Catalouge{FoodName="Steven Carrots",FoodType="Veg",CommericalGood=true, Supplier=Suppliers.Where(s => (s.SupplierName=="Steven's Farming Co")).ToList()},
+                new Catalouge{FoodName="John's Microwave Meal",FoodType="Meal",CommericalGood=false, Supplier=Suppliers.Where(s => (s.SupplierName=="John's Manufacturing")).ToList()},
+                new Catalouge{FoodName="Nutella Cakes",FoodType="Pastry",CommericalGood=true, Supplier=Suppliers.Where(s => (s.SupplierName=="Nela Wholeseller")).ToList()},
+                new Catalouge{FoodName="Smith's Pork",FoodType="Meat",CommericalGood=true, Supplier=Suppliers.Where(s => (s.SupplierName=="Smith's Farming Ltd")).ToList()},
+                new Catalouge{FoodName="Smith's Beef",FoodType="Meat",CommericalGood=true, Supplier=Suppliers.Where(s => (s.SupplierName=="Smith's Farming Ltd")).ToList()},
+                new Catalouge{FoodName="Eamonn Buns",FoodType="Pastry",CommericalGood=false, Supplier=Suppliers.Where(s => (s.SupplierName=="Eamonn Industrial Plant")).ToList()},
+                new Catalouge{FoodName="Eamonn Sponge Cake",FoodType="Pastry",CommericalGood=false, Supplier=Suppliers.Where(s => (s.SupplierName=="Eamonn Industrial Plant")).ToList()},
+                new Catalouge{FoodName="Nela's Imported Canned Foods",FoodType="Canned",CommericalGood=false, Supplier=Suppliers.Where(s => (s.SupplierName=="Nela Wholeseller")).ToList()},
+                new Catalouge{FoodName="Eamonn's Local Canned Foods",FoodType="Canned",CommericalGood=true, Supplier=Suppliers.Where(s => (s.SupplierName=="Eamonn Industrial Plant")).ToList()}
+            };
+            Catalouge.ForEach(c => context.Catalouges.AddOrUpdate(Catalouges => Catalouges.FoodName, c));
             context.SaveChanges();
             var Customer = new List<Customer>
             {
@@ -57,21 +57,21 @@
             context.SaveChanges();
             var Orders = new List<Order>
             {
-                new Order{DateOrdered=new DateTime(2020,11,10), CatId=2, CusId=1},
-                new Order{DateOrdered=new DateTime(2020,11,07), CatId=3, CusId=5},
-                new Order{DateOrdered=new DateTime(2020,10,09), CatId=8, CusId=6},
-                new Order{DateOrdered=new DateTime(2020,10,22), CatId=10, CusId=7},
-                new Order{DateOrdered=new DateTime(2020,11,03), CatId=5, CusId=2},
-                new Order{DateOrdered=new DateTime(2020,09,18), CatId=12, CusId=4},
-                new Order{DateOrdered=new DateTime(2020,10,10), CatId=13, CusId=2},
-                new Order{DateOrdered=new DateTime(2020,09,22), CatId=6, CusId=3},
-                new Order{DateOrdered=new DateTime(2020,08,16), CatId=8, CusId=6},
-                new Order{DateOrdered=new DateTime(2020,11,02), CatId=11, CusId=1},
-                new Order{DateOrdered=new DateTime(2019,12,08), CatId=12, CusId=7},
-                new Order{DateOrdered=new DateTime(2020,12,01), CatId=4, CusId=2},
-                new Order{DateOrdered=new DateTime(2019,11,11), CatId=7, CusId=2}
+                new Order{DateOrdered=new DateTime(2020,11,10), Product=Catalouge.Where(p =>(p.FoodName=="John's Home Made Meals")).ToList(), Customer=Customer.Where(c=>(c.CustomerName=="Ana")).ToList()},
+                new Order{DateOrdered=new DateTime(2020,11,07), Product=Catalouge.Where(p =>(p.FoodName=="Ben's Pringels")).ToList(), Customer=Customer.Where(c=>(c.CustomerName=="Siobhan")).ToList()},
+                new Order{DateOrdered=new DateTime(2020,10,09), Product=Catalouge.Where(p =>(p.FoodName=="Smith's Pork")).ToList(), Customer=Customer.Where(c=>(c.CustomerName=="Shauna")).ToList()},
+                new Order{DateOrdered=new DateTime(2020,10,22), Product=Catalouge.Where(p =>(p.FoodName=="Eamonn Buns")).ToList(), Customer=Customer.Where(c=>(c.CustomerName=="Migel")).ToList()},
+                new Order{DateOrdered=new DateTime(2020,11,03), Product=Catalouge.Where(p =>(p.FoodName=="Steven Carrots")).ToList(), Customer=Customer.Where(c=>(c.CustomerName=="Ben")).ToList()},
+                new Order{DateOrdered=new DateTime(2020,09,18), Product=Catalouge.Where(p =>(p.FoodName=="Nela's Imported Canned Foods")).ToList(), Customer=Customer.Where(c=>(c.CustomerName=="Garry")).ToList()},
+                new Order{DateOrdered=new DateTime(2020,10,10), Product=Catalouge.Where(p =>(p.FoodName=="Eamonn's Local Canned Foods")).ToList(), Customer=Customer.Where(c=>(c.CustomerName=="Ben")).ToList()},
+                new Order{DateOrdered=new DateTime(2020,09,22), Product=Catalouge.Where(p =>(p.FoodName=="John's Microwave Meal")).ToList(), Customer=Customer.Where(c=>(c.CustomerName=="Emanuela")).ToList()},
+                new Order{DateOrdered=new DateTime(2020,08,16), Product=Catalouge.Where(p =>(p.FoodName=="Smith's Pork")).ToList(), Customer=Customer.Where(c=>(c.CustomerName=="Shauna")).ToList()},
+                new Order{DateOrdered=new DateTime(2020,11,02), Product=Catalouge.Where(p =>(p.FoodName=="Eamonn Sponge Cake")).ToList(), Customer=Customer.Where(c=>(c.CustomerName=="Ana")).ToList()},
+                new Order{DateOrdered=new DateTime(2019,12,08), Product=Catalouge.Where(p =>(p.FoodName=="Nela's Imported Canned Foods")).ToList(), Customer=Customer.Where(c=>(c.CustomerName=="Migel")).ToList()},
+                new Order{DateOrdered=new DateTime(2020,12,01), Product=Catalouge.Where(p =>(p.FoodName=="Steven Apples")).ToList(),  Customer=Customer.Where(c=>(c.CustomerName=="Ben")).ToList()},
+                new Order{DateOrdered=new DateTime(2019,11,11), Product=Catalouge.Where(p =>(p.FoodName=="Nutella Cakes")).ToList(), Customer=Customer.Where(c=>(c.CustomerName=="Ben")).ToList()}
             };
-            Orders.ForEach(o => context.Orders.AddOrUpdate(Order => Order.CatId, o));
+            Orders.ForEach(o => context.Orders.AddOrUpdate(Order => Order.DateOrdered, o));
             context.SaveChanges();
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -10,24 +11,24 @@ using John_Doe_Food_Ltd.Models;
 
 namespace John_Doe_Food_Ltd.Controllers
 {
-    public class SupplierController : Controller
+    public class SuppliersController : Controller
     {
         private LibraryContext db = new LibraryContext();
 
-        // GET: Supplier
-        public ActionResult Index()
+        // GET: Suppliers
+        public async Task<ActionResult> Index()
         {
-            return View(db.Suppliers.ToList());
+            return View(await db.Suppliers.ToListAsync());
         }
 
-        // GET: Supplier/Details/5
-        public ActionResult Details(int? id)
+        // GET: Suppliers/Details/5
+        public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Supplier supplier = db.Suppliers.Find(id);
+            Supplier supplier = await db.Suppliers.FindAsync(id);
             if (supplier == null)
             {
                 return HttpNotFound();
@@ -35,37 +36,37 @@ namespace John_Doe_Food_Ltd.Controllers
             return View(supplier);
         }
 
-        // GET: Supplier/Create
+        // GET: Suppliers/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Supplier/Create
+        // POST: Suppliers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SupplierId,SupplierName,SupplierType,TelephoneNo,Email,Address")] Supplier supplier)
+        public async Task<ActionResult> Create([Bind(Include = "SupplierId,SupplierName,SupplierType,TelephoneNo,Email,Address")] Supplier supplier)
         {
             if (ModelState.IsValid)
             {
                 db.Suppliers.Add(supplier);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
             return View(supplier);
         }
 
-        // GET: Supplier/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: Suppliers/Edit/5
+        public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Supplier supplier = db.Suppliers.Find(id);
+            Supplier supplier = await db.Suppliers.FindAsync(id);
             if (supplier == null)
             {
                 return HttpNotFound();
@@ -73,30 +74,30 @@ namespace John_Doe_Food_Ltd.Controllers
             return View(supplier);
         }
 
-        // POST: Supplier/Edit/5
+        // POST: Suppliers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SupplierId,SupplierName,SupplierType,TelephoneNo,Email,Address")] Supplier supplier)
+        public async Task<ActionResult> Edit([Bind(Include = "SupplierId,SupplierName,SupplierType,TelephoneNo,Email,Address")] Supplier supplier)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(supplier).State = EntityState.Modified;
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(supplier);
         }
 
-        // GET: Supplier/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Suppliers/Delete/5
+        public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Supplier supplier = db.Suppliers.Find(id);
+            Supplier supplier = await db.Suppliers.FindAsync(id);
             if (supplier == null)
             {
                 return HttpNotFound();
@@ -104,14 +105,14 @@ namespace John_Doe_Food_Ltd.Controllers
             return View(supplier);
         }
 
-        // POST: Supplier/Delete/5
+        // POST: Suppliers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Supplier supplier = db.Suppliers.Find(id);
+            Supplier supplier = await db.Suppliers.FindAsync(id);
             db.Suppliers.Remove(supplier);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
@@ -122,6 +123,12 @@ namespace John_Doe_Food_Ltd.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        //GET: Suppliers/Search
+        public ActionResult Search()
+        {
+            return View();
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -10,24 +11,24 @@ using John_Doe_Food_Ltd.Models;
 
 namespace John_Doe_Food_Ltd.Controllers
 {
-    public class CustomerController : Controller
+    public class CustomersController : Controller
     {
         private LibraryContext db = new LibraryContext();
 
-        // GET: Customer
-        public ActionResult Index()
+        // GET: Customers
+        public async Task<ActionResult> Index()
         {
-            return View(db.Customers.ToList());
+            return View(await db.Customers.ToListAsync());
         }
 
-        // GET: Customer/Details/5
-        public ActionResult Details(int? id)
+        // GET: Customers/Details/5
+        public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
+            Customer customer = await db.Customers.FindAsync(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -35,37 +36,37 @@ namespace John_Doe_Food_Ltd.Controllers
             return View(customer);
         }
 
-        // GET: Customer/Create
+        // GET: Customers/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Customer/Create
+        // POST: Customers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerId,CustomerName,Commercial,TelephoneNo,Email,Address")] Customer customer)
+        public async Task<ActionResult> Create([Bind(Include = "CustomerId,CustomerName,Commercial,TelephoneNo,Email,Address")] Customer customer)
         {
             if (ModelState.IsValid)
             {
                 db.Customers.Add(customer);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
             return View(customer);
         }
 
-        // GET: Customer/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: Customers/Edit/5
+        public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
+            Customer customer = await db.Customers.FindAsync(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -73,30 +74,30 @@ namespace John_Doe_Food_Ltd.Controllers
             return View(customer);
         }
 
-        // POST: Customer/Edit/5
+        // POST: Customers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerId,CustomerName,Commercial,TelephoneNo,Email,Address")] Customer customer)
+        public async Task<ActionResult> Edit([Bind(Include = "CustomerId,CustomerName,Commercial,TelephoneNo,Email,Address")] Customer customer)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(customer).State = EntityState.Modified;
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(customer);
         }
 
-        // GET: Customer/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Customers/Delete/5
+        public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
+            Customer customer = await db.Customers.FindAsync(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -104,14 +105,14 @@ namespace John_Doe_Food_Ltd.Controllers
             return View(customer);
         }
 
-        // POST: Customer/Delete/5
+        // POST: Customers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Customer customer = db.Customers.Find(id);
+            Customer customer = await db.Customers.FindAsync(id);
             db.Customers.Remove(customer);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
@@ -122,6 +123,12 @@ namespace John_Doe_Food_Ltd.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        //GET: Customers/Search
+        public ActionResult Search()
+        {
+            return View();
         }
     }
 }

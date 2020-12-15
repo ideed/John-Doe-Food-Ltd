@@ -18,13 +18,6 @@ namespace John_Doe_Food_Ltd.Models
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<Order> Orders { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
 
-            base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<Customer>().HasMany(o => o.Orders).WithRequired().HasForeignKey(h => h.CusId);
-            modelBuilder.Entity<Catalouge>().HasMany(o => o.Orders).WithRequired().HasForeignKey(h => h.CatId);
-        }
     }
 }

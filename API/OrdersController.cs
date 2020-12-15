@@ -20,15 +20,33 @@ namespace John_Doe_Food_Ltd.API
         // GET: api/Orders
         public IQueryable<OrderDTO> GetOrders()
         {
-            var orders = from o in db.Orders
-                         select new OrderDTO()
-                         {
-                             OrderId = o.OrderId,
-                             DateOrdered = o.DateOrdered,
-                             CatId = o.CatId,
-                             CusId = o.CusId
-                         };
-            return orders;
+            var order = from o in db.Orders
+                        select new OrderDTO()
+                        {
+                            OrderId = o.OrderId,
+                            DateOrdered = o.DateOrdered,
+                            Product = o.Product.Select(p=>new CatalougeDTO() { 
+                                FoodId = p.FoodId,
+                                FoodName = p.FoodName,
+                                FoodType = p.FoodType,
+                                CommericalGood = p.CommericalGood,
+                                Suppliers = p.Supplier.Select(s => new SupplierDTO()
+                                {
+                                    SupplierId = s.SupplierId,
+                                    SupplierName = s.SupplierName,
+                                    SupplierType = s.SupplierType
+                                }).ToList()
+                            }).ToList(),
+                            Customer = o.Customer.Select(c => new CustomerDTO() { 
+                                CustomerId = c.CustomerId,
+                                CustomerName = c.CustomerName,
+                                Commercial = c.Commercial,
+                                TelephoneNo = c.TelephoneNo,
+                                Email = c.Email,
+                                Address = c.Address
+                            }).ToList()
+                        };
+            return order;
         }
 
         // GET: api/Orders/5
@@ -40,13 +58,32 @@ namespace John_Doe_Food_Ltd.API
             {
                 return NotFound();
             }
-
             OrderDTO order = new OrderDTO
             {
                 OrderId = o.OrderId,
                 DateOrdered = o.DateOrdered,
-                CatId = o.CatId,
-                CusId = o.CusId
+                Product = o.Product.Select(p => new CatalougeDTO()
+                {
+                    FoodId = p.FoodId,
+                    FoodName = p.FoodName,
+                    FoodType = p.FoodType,
+                    CommericalGood = p.CommericalGood,
+                    Suppliers = p.Supplier.Select(s => new SupplierDTO()
+                    {
+                        SupplierId = s.SupplierId,
+                        SupplierName = s.SupplierName,
+                        SupplierType = s.SupplierType
+                    }).ToList()
+                }).ToList(),
+                Customer = o.Customer.Select(c => new CustomerDTO()
+                {
+                    CustomerId = c.CustomerId,
+                    CustomerName = c.CustomerName,
+                    Commercial = c.Commercial,
+                    TelephoneNo = c.TelephoneNo,
+                    Email = c.Email,
+                    Address = c.Address
+                }).ToList()
             };
 
             return Ok(order);

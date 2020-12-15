@@ -1,0 +1,59 @@
+﻿@model John_Doe_Food_Ltd.Models.OrderViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Order.DateOrdered)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order.DateOrdered)
+        </dd>
+
+    </dl>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            Customer
+        </th>
+    </tr>
+    @foreach (var item in Model.SelectedCustomers)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.AllCustomers.First(c => c.Value == item.ToString()).Text)
+            </td>
+        </tr>
+        <tr></tr>
+    }
+</table>
+<table class="table">
+    <tr>
+        <th>
+            Product
+        </th>
+    </tr>
+    @foreach (var item in Model.SelectedCatalouges)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.AllCatalouges.First(c => c.Value == item.ToString()).Text)
+            </td>
+        </tr>
+        <tr></tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Order.OrderId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

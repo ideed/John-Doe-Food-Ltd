@@ -186,12 +186,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CatalougeController.cs" />
-    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\CatalougesController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\OrderController.cs" />
-    <Compile Include="Controllers\SupplierController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\SuppliersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -247,10 +247,48 @@
     <Compile Include="Migrations\202011231151447_removedRefNo.designer.cs">
       <DependentUpon>202011231151447_removedRefNo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011301228275_changedDB.cs" />
+    <Compile Include="Migrations\202011301228275_changedDB.designer.cs">
+      <DependentUpon>202011301228275_changedDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011301240200_updatedDBTwo.cs" />
+    <Compile Include="Migrations\202011301240200_updatedDBTwo.designer.cs">
+      <DependentUpon>202011301240200_updatedDBTwo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011301301043_fixedCus.cs" />
+    <Compile Include="Migrations\202011301301043_fixedCus.designer.cs">
+      <DependentUpon>202011301301043_fixedCus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011301342455_fixes01.cs" />
+    <Compile Include="Migrations\202011301342455_fixes01.designer.cs">
+      <DependentUpon>202011301342455_fixes01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011301402167_orderCat.cs" />
+    <Compile Include="Migrations\202011301402167_orderCat.designer.cs">
+      <DependentUpon>202011301402167_orderCat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012030925431_UpdateContext.cs" />
+    <Compile Include="Migrations\202012030925431_UpdateContext.designer.cs">
+      <DependentUpon>202012030925431_UpdateContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012141016555_TestSeed.cs" />
+    <Compile Include="Migrations\202012141016555_TestSeed.designer.cs">
+      <DependentUpon>202012141016555_TestSeed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ApplicationDbContext\202011131417121_InitialCreate.cs" />
+    <Compile Include="Migrations\ApplicationDbContext\202011131417121_InitialCreate.designer.cs">
+      <DependentUpon>202011131417121_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ApplicationDbContext\202012031300399_AddAliasField.cs" />
+    <Compile Include="Migrations\ApplicationDbContext\202012031300399_AddAliasField.designer.cs">
+      <DependentUpon>202012031300399_AddAliasField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ApplicationDbContext\Configuration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Catalouge.cs" />
     <Compile Include="Models\CatalougeDTO.cs" />
+    <Compile Include="Models\CatalougeViewModel.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerDTO.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -258,6 +296,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDTO.cs" />
+    <Compile Include="Models\OrderViewModel.cs" />
     <Compile Include="Models\Supplier.cs" />
     <Compile Include="Models\SupplierDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -274,6 +313,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\JohnDoeFoods - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\JohnDoeFoods - ReadOnly - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\JohnDoeFoods - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -316,29 +358,33 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Supplier\Create.cshtml" />
-    <Content Include="Views\Supplier\Delete.cshtml" />
-    <Content Include="Views\Supplier\Details.cshtml" />
-    <Content Include="Views\Supplier\Edit.cshtml" />
-    <Content Include="Views\Supplier\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Customer\Create.cshtml" />
-    <Content Include="Views\Customer\Delete.cshtml" />
-    <Content Include="Views\Customer\Details.cshtml" />
-    <Content Include="Views\Customer\Edit.cshtml" />
-    <Content Include="Views\Customer\Index.cshtml" />
-    <Content Include="Views\Catalouge\Create.cshtml" />
-    <Content Include="Views\Catalouge\Delete.cshtml" />
-    <Content Include="Views\Catalouge\Details.cshtml" />
-    <Content Include="Views\Catalouge\Edit.cshtml" />
-    <Content Include="Views\Catalouge\Index.cshtml" />
-    <Content Include="Views\Order\Create.cshtml" />
-    <Content Include="Views\Order\Delete.cshtml" />
-    <Content Include="Views\Order\Details.cshtml" />
-    <Content Include="Views\Order\Edit.cshtml" />
-    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Suppliers\Create.cshtml" />
+    <Content Include="Views\Suppliers\Delete.cshtml" />
+    <Content Include="Views\Suppliers\Details.cshtml" />
+    <Content Include="Views\Suppliers\Edit.cshtml" />
+    <Content Include="Views\Suppliers\Index.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Catalouges\Create.cshtml" />
+    <Content Include="Views\Catalouges\Delete.cshtml" />
+    <Content Include="Views\Catalouges\Details.cshtml" />
+    <Content Include="Views\Catalouges\Edit.cshtml" />
+    <Content Include="Views\Catalouges\Index.cshtml" />
+    <Content Include="Views\Suppliers\Search.cshtml" />
+    <Content Include="Views\Customers\Search.cshtml" />
+    <Content Include="Views\Orders\Search.cshtml" />
+    <Content Include="Views\Catalouges\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -395,6 +441,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011231151447_removedRefNo.resx">
       <DependentUpon>202011231151447_removedRefNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011301228275_changedDB.resx">
+      <DependentUpon>202011301228275_changedDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011301240200_updatedDBTwo.resx">
+      <DependentUpon>202011301240200_updatedDBTwo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011301301043_fixedCus.resx">
+      <DependentUpon>202011301301043_fixedCus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011301342455_fixes01.resx">
+      <DependentUpon>202011301342455_fixes01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011301402167_orderCat.resx">
+      <DependentUpon>202011301402167_orderCat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012030925431_UpdateContext.resx">
+      <DependentUpon>202012030925431_UpdateContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012141016555_TestSeed.resx">
+      <DependentUpon>202012141016555_TestSeed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\ApplicationDbContext\202011131417121_InitialCreate.resx">
+      <DependentUpon>202011131417121_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\ApplicationDbContext\202012031300399_AddAliasField.resx">
+      <DependentUpon>202012031300399_AddAliasField.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

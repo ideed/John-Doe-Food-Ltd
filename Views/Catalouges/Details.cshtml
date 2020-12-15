@@ -1,0 +1,59 @@
+﻿@model John_Doe_Food_Ltd.Models.CatalougeViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Catalouge</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Catalouge.FoodName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Catalouge.FoodName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Catalouge.FoodType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Catalouge.FoodType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Catalouge.CommericalGood)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Catalouge.CommericalGood)
+        </dd>
+
+    </dl>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            Suppliers
+        </th>
+    </tr>
+    @foreach (var item in Model.SelectedSuppliers)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => Model.AllSuppliers.First(s => s.Value == item.ToString()).Text)
+            </td>
+        </tr>
+        <tr></tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Catalouge.FoodId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

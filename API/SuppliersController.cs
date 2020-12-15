@@ -20,18 +20,17 @@ namespace John_Doe_Food_Ltd.API
         // GET: api/Suppliers
         public IQueryable<SupplierDTO> GetSuppliers()
         {
-            var suppliers = from s in db.Suppliers
-                            select new SupplierDTO()
-                            {
+            var supplier = from s in db.Suppliers
+                           select new SupplierDTO()
+                           {
                                 SupplierId = s.SupplierId,
                                 SupplierName = s.SupplierName,
                                 SupplierType = s.SupplierType,
                                 TelephoneNo = s.TelephoneNo,
                                 Email = s.Email,
-                                Address = s.Address,
-                                Supplies = s.Supplies
-                            };
-            return suppliers;
+                                Address = s.Address
+                           };
+            return supplier;
         }
 
         // GET: api/Suppliers/5
@@ -51,8 +50,7 @@ namespace John_Doe_Food_Ltd.API
                 SupplierType = s.SupplierType,
                 TelephoneNo = s.TelephoneNo,
                 Email = s.Email,
-                Address = s.Address,
-                Supplies = s.Supplies
+                Address = s.Address
             };
 
             return Ok(supplier);

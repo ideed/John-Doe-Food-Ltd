@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search for supplier by Id</h2>
+
+<div class="col-md-10">
+        <input type="text" id="SupId" size="5"/>
+        <input type="submit" name="SearchButton" id="SearchButton" value="Search"/>
+</div>
+<br/>
+<div id="divProcessing">
+    <p>Processing, please wait . . .<img src="../../Content/ajax-loader.gif" height="50"></p>
+</div>
+<br/>
+<div id="divResult"></div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    
+    <script type="text/javascript">
+        
+        $(document).ready(function () {
+            $("#divProcessing").hide();
+            $('#SearchButton').click(function () {
+                search();
+            });
+        });
+
+        function search() {
+            $("#divResult").empty();
+            $("#divProcessing").show();
+            var supId = $("#SupId").val();
+            var url = "../../api/suppliers/" + supId;
+            $.ajax({
+                url: url,
+                type: "GET",
+                dataType: "json",
+                success: function (resp) {
+                    $("#divProcessing").hide();
+                    $("<h3>Result</h3>").appendTo("#divResult");
+                    $("#divResult").append("<p>Supplier Name: " + resp.SupplierName + "<br/> Supplier Type: " + resp.SupplierType + "<br/> Telephone Number: " + resp.TelephoneNo + "<br/>");
+                    $("#divResult").append("Email: " + resp.Email + "<br/> Address: " + resp.Address + "<br/></p>");
+                }
+            })
+        }
+    </script>
+}

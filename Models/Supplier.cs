@@ -12,12 +12,7 @@ namespace John_Doe_Food_Ltd.Models
         public string SupplierType { get; set; }
         public string TelephoneNo { get; set; }
         public string Email { get; set; }
-        public string Address { get; set; }
-        //Many-to-Many
-        public List<Catalouge> Supplies { get; set; }
-        public Supplier()
-        {
-            this.Supplies = new List<Catalouge>();
-        }
+        public string Address { get; set; }      
+        
     }
 }

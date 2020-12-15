@@ -20,16 +20,21 @@ namespace John_Doe_Food_Ltd.API
         // GET: api/Catalouges
         public IQueryable<CatalougeDTO> GetCatalouges()
         {
-            var catalouges = from c in db.Catalouges
-                             select new CatalougeDTO()
-                             {
-                                 FoodId = c.FoodId,
-                                 FoodName = c.FoodName,
-                                 FoodType = c.FoodType,
-                                 CommericalGood = c.CommericalGood,
-                                 Orders = c.Orders
-                             };
-            return catalouges;
+            var catalouge = from c in db.Catalouges
+                            select new CatalougeDTO()
+                            {
+                                FoodId = c.FoodId,
+                                FoodName = c.FoodName,
+                                FoodType = c.FoodType,
+                                CommericalGood = c.CommericalGood,
+                                Suppliers = c.Supplier.Select(s=>new SupplierDTO() { 
+                                    SupplierId = s.SupplierId,
+                                    SupplierName = s.SupplierName,
+                                    SupplierType = s.SupplierType
+                                }).ToList()
+                            };
+            
+            return catalouge;
         }
 
         // GET: api/Catalouges/5
@@ -41,14 +46,18 @@ namespace John_Doe_Food_Ltd.API
             {
                 return NotFound();
             }
-
             CatalougeDTO catalouge = new CatalougeDTO
             {
                 FoodId = c.FoodId,
                 FoodName = c.FoodName,
                 FoodType = c.FoodType,
                 CommericalGood = c.CommericalGood,
-                Orders = c.Orders
+                Suppliers = c.Supplier.Select(s => new SupplierDTO()
+                {
+                    SupplierId = s.SupplierId,
+                    SupplierName = s.SupplierName,
+                    SupplierType = s.SupplierType
+                }).ToList()
             };
 
             return Ok(catalouge);

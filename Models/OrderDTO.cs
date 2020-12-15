@@ -9,12 +9,12 @@ namespace John_Doe_Food_Ltd.Models
 {
     public class OrderDTO
     {
-        [Key]
+
         public int OrderId { get; set; }
 
         public DateTime DateOrdered { get; set; }
 
-        public int CatId { get; set; }
-        public int CusId { get; set; }
+        public virtual ICollection<CatalougeDTO> Product { get; set; }
+        public virtual ICollection<CustomerDTO> Customer { get; set; }
     }
 }

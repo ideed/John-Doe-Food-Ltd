@@ -20,18 +20,17 @@ namespace John_Doe_Food_Ltd.API
         // GET: api/Customers
         public IQueryable<CustomerDTO> GetCustomers()
         {
-            var customers = from c in db.Customers
-                            select new CustomerDTO()
-                            {
+            var customer = from c in db.Customers
+                           select new CustomerDTO()
+                           {
                                 CustomerId = c.CustomerId,
                                 CustomerName = c.CustomerName,
                                 Commercial = c.Commercial,
                                 TelephoneNo = c.TelephoneNo,
                                 Email = c.Email,
-                                Address = c.Address,
-                                Orders = c.Orders
+                                Address = c.Address
                             };
-            return customers;
+            return customer;
         }
 
         // GET: api/Customers/5
@@ -51,8 +50,7 @@ namespace John_Doe_Food_Ltd.API
                 Commercial = c.Commercial,
                 TelephoneNo = c.TelephoneNo,
                 Email = c.Email,
-                Address = c.Address,
-                Orders = c.Orders
+                Address = c.Address
             };
 
             return Ok(customer);
